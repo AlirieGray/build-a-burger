@@ -1,5 +1,5 @@
 
-export const ADD_ITEM = ({ item }) => {
+export const addItem = ({ item }) => {
   type: "ADD_ITEM",
   item
 }
