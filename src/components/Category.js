@@ -10,9 +10,9 @@ class Category extends Component {
     return this.props.options.map((option, index) => {
       // TODO: check if should be radio or square
       return (
-        <div>
-          <input type="radio" id={`${this.props.name}-${index}`} key={index} />
-          <label htmlFor={`${this.props.name}-${index}`} key={`${option}-${index}`}> {option}</label>
+        <div key={index}>
+          <input type="radio" id={`${this.props.name}-${index}`} />
+          <label htmlFor={`${this.props.name}-${index}`}> {option}</label>
         </div>
       )
     })
