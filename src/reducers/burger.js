@@ -1,4 +1,4 @@
-const burgerDefault = [{type:'cheese',name:'swiss'}];
+const burgerDefault = [];
 
 export default (state = burgerDefault, action) => {
   switch (action.type) {

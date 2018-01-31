@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './Receipt.css';
 import Item from './Item';
 
-class Menu extends Component {
+class Receipt extends Component {
 
   constructor(props) {
     super(props);
@@ -32,4 +32,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Menu);
+export default connect(mapStateToProps)(Receipt);
