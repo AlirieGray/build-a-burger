@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Protein",
+    "items": ["Beef", "Chicken", "Turkey", "Vegan Veggie"]
+  },
+  {
+    "name": "Bun",
+    "items": ["Wheat", "Gluten-free", "Salad"]
+  },
+  {
+    "name": "Cheese",
+    "items": ["Swiss", "American", "Cheddar"]
+  },
+  {
+    "name": "Sauce",
+    "items": ["The Counter Relish", "Apricot Sauce", "Horseradish Aioli",
+      "Roasted Garlic Aioli", "Basil Pesto", "Hot Wing Sauce"]
+  },
+  {
+    "name": "Toppings",
+    "items": ["Scallions", "Sliced red onions", "Kale"]
+  },
+  {
+    "name": "Premium Toppings",
+    "items": ["Sunny side up egg", "Avocado"]
+  }
+]
