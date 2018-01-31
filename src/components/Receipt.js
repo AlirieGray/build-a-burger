@@ -12,7 +12,7 @@ class Receipt extends Component {
 
   GetBurger(burger) {
     return burger.map((item, index) => {
-      return <Item name={item.name} />
+      return <Item key={index} name={item.name} />
     })
   }
 
@@ -20,7 +20,7 @@ class Receipt extends Component {
     return (
       <div className="container">
         <h2> Receipt </h2>
-        <p> {this.GetBurger(this.props.burger)} </p>
+        <div> {this.GetBurger(this.props.burger)} </div>
       </div>
     );
   }

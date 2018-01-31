@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import './Menu.css';
 import Item from './Item';
-import * as actions from '../actions/burger';
+import { addItem } from '../actions/burger';
 
 class Menu extends Component {
 
@@ -12,9 +12,10 @@ class Menu extends Component {
     this.AddItem = this.AddItem.bind(this);
   }
 
-  AddItem(item) {
+  AddItem(e) {
+    var item = {type: 'cheese', name: 'swiss'}
     console.log('adding item')
-    this.props.dispatch(actions.addItem);
+    this.props.addItemAction(item);
   }
 
   render() {
@@ -35,10 +36,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-// dispatch: dispatches an action. this is the only way to
-// trigger a state change.
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(actions, dispatch)
-}
-
-export default connect()(Menu);
+export default connect(mapStateToProps, { addItemAction: addItem })(Menu);
