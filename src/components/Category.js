@@ -11,7 +11,7 @@ class Category extends Component {
       // TODO: check if should be radio or square
       return (
         <div key={index}>
-          <input type="radio" id={`${this.props.name}-${index}`} />
+          <input type="radio" id={`${this.props.name}-${index}`} name={this.props.name} checked={index==0}/>
           <label htmlFor={`${this.props.name}-${index}`}> {option}</label>
         </div>
       )

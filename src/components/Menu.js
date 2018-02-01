@@ -31,7 +31,9 @@ class Menu extends Component {
     return (
       <div className="container">
         <h2> Menu </h2>
-        {this.GetCategories()}
+        <form>
+          {this.GetCategories()}
+        </form>
       </div>
     );
   }
