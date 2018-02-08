@@ -22,7 +22,7 @@ class Category extends Component {
   }
 
   AddItem(itemName) {
-    var item = {type: this.props.name, name: itemName}
+    var item = {type: this.props.name, isRadio: this.props.isRadio, name: itemName}
     console.log(item);
     this.props.addItemAction(item);
   }
@@ -33,7 +33,7 @@ class Category extends Component {
       // this.props.isRadio
       return (
         <div key={index}>
-          <input type="radio" id={`${this.props.name}-${index}`} name={option} value={option} checked={this.state.selectedOption===option}
+          <input type={this.props.isRadio ? "radio" : "checkbox"} id={`${this.props.name}-${index}`} name={option} value={option} checked={this.state.selectedOption===option}
           onChange={this.HandleOptionChange}/>
           <label htmlFor={`${this.props.name}-${index}`}> {option}</label>
         </div>
