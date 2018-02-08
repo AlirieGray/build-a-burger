@@ -14,7 +14,7 @@ class Menu extends Component {
 
   GetCategories() {
     return menuItems.map((category, index) => {
-      return <Category name={category.name} options={category.items} key={index}/>
+      return <Category name={category.name} options={category.items} isRadio={category.isRadio} key={index}/>
     })
   }
 

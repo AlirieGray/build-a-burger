@@ -16,8 +16,9 @@ class Category extends Component {
   HandleOptionChange(e) {
     this.setState({
       selectedOption: e.target.value
+    }, () => {
+      this.AddItem(this.state.selectedOption);
     })
-    this.AddItem(this.state.selectedOption)
   }
 
   AddItem(itemName) {
@@ -29,6 +30,7 @@ class Category extends Component {
   GetOptions() {
     return this.props.options.map((option, index) => {
       // TODO: check if should be radio or square
+      // this.props.isRadio
       return (
         <div key={index}>
           <input type="radio" id={`${this.props.name}-${index}`} name={option} value={option} checked={this.state.selectedOption===option}

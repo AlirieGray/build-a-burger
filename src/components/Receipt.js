@@ -21,6 +21,7 @@ class Receipt extends Component {
       <div className="container">
         <h2> Receipt </h2>
         <div> {this.GetBurger(this.props.burger)} </div>
+        
       </div>
     );
   }
