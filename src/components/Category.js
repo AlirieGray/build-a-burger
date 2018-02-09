@@ -15,7 +15,7 @@ class Category extends Component {
       }
     } else {
       this.state = {
-        selectedOptions:[this.props.options[0]]
+        selectedOptions:[]
       }
     }
 
@@ -37,9 +37,9 @@ class Category extends Component {
     var index = this.state.selectedOptions.indexOf(e.target.value);
     if (index >= 0) {
       this.setState({
-        selectedOptions: this.state.selectedOptions.filter(item => item.name != e.target.value)
+        selectedOptions: this.state.selectedOptions.filter(item => item.name == e.target.value)
       }, () => {
-        this.RemoveItem(e.target.name);
+        this.RemoveItem(e.target.value);
       })
     }
     // otherwise, add it to state
@@ -47,19 +47,21 @@ class Category extends Component {
       this.setState({
         selectedOptions: [...this.state.selectedOptions, e.target.name]
       }, () => {
-        this.AddItem(e.target.name);
+        this.AddItem(e.target.value);
       })
     }
   }
 
   AddItem(itemName) {
     var item = {type: this.props.name, isRadio: this.props.isRadio, name: itemName}
+    console.log('local add')
     console.log(item);
     this.props.addItemAction(item);
   }
 
   RemoveItem(itemName) {
     var item = {type: this.props.name, isRadio: this.props.isRadio, name: itemName}
+    console.log('local remove')
     console.log(item);
     this.props.removeItemAction(item);
   }

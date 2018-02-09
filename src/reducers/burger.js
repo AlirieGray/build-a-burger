@@ -22,7 +22,7 @@ export default (state = burgerDefault, action) => {
         }
         return filteredBurger;
       } else {
-        console.log('adding cheese')
+        console.log('adding non-radio item')
         return [...state, { type:action.item.type, name: action.item.name }]
       }
     case 'REMOVE_ITEM':
