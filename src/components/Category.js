@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { addItem } from '../actions/burger';
+import { addItem, removeItem } from '../actions/burger';
 import { connect } from 'react-redux';
 
 class Category extends Component {
@@ -32,13 +32,14 @@ class Category extends Component {
   }
 
   ToggleCheckbox(e) {
+    e.persist();
     // if we already have the item in state, remove it
     var index = this.state.selectedOptions.indexOf(e.target.value);
     if (index >= 0) {
       this.setState({
-        selectedOptions: this.state.selectedOptions.splice(index, 1)
+        selectedOptions: this.state.selectedOptions.filter(item => item.name != e.target.value)
       }, () => {
-        console.log(this.state.selectedOptions)
+        this.RemoveItem(e.target.name);
       })
     }
     // otherwise, add it to state
@@ -55,6 +56,12 @@ class Category extends Component {
     var item = {type: this.props.name, isRadio: this.props.isRadio, name: itemName}
     console.log(item);
     this.props.addItemAction(item);
+  }
+
+  RemoveItem(itemName) {
+    var item = {type: this.props.name, isRadio: this.props.isRadio, name: itemName}
+    console.log(item);
+    this.props.removeItemAction(item);
   }
 
   GetOptions() {
@@ -103,4 +110,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { addItemAction: addItem })(Category);
+export default connect(mapStateToProps, { addItemAction: addItem, removeItemAction: removeItem })(Category);
