@@ -5,3 +5,10 @@ export const addItem = ( item ) => {
     item
   }
 }
+
+export const removeItem = ( item ) => {
+  return {
+    type: 'REMOVE_ITEM',
+    item
+  }
+}

@@ -18,9 +18,9 @@ class Receipt extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="receipt">
         <h2> Receipt </h2>
-        <div> {this.GetBurger(this.props.burger)} </div>    
+        <div> {this.GetBurger(this.props.burger)} </div>
       </div>
     );
   }

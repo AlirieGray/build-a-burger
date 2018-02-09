@@ -2,10 +2,6 @@ const burgerDefault = [
   { type:'Protein', name: 'Beef' },
   { type:'Bun', name: 'Brioche' },
   { type:'Weight', name: '1/3 lb'},
-  { type:'Cheese', name: 'Swiss' },
-  { type:'Sauce', name: 'The Counter Relish' },
-  { type:'Toppings', name: 'Organic Mixed Greens' },
-  { type:'Premium Toppings', name: 'Avocado' }
 ];
 
 export default (state = burgerDefault, action) => {
@@ -26,8 +22,11 @@ export default (state = burgerDefault, action) => {
         }
         return filteredBurger;
       } else {
+        console.log('adding cheese')
         return [...state, { type:action.item.type, name: action.item.name }]
       }
+    case 'REMOVE_ITEM':
+      return state.filter(item => action.item.type != item.type);
     default:
       return state;
   }
