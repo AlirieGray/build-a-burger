@@ -16,6 +16,14 @@ class Receipt extends Component {
     })
   }
 
+  CalculatePrice(burger) {
+    // Weight
+    // Cheese
+    // Sauce
+    // Toppings
+    // Premium
+  }
+
   render() {
     return (
       <div className="receipt">
