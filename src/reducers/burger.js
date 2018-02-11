@@ -1,9 +1,42 @@
-const burgerDefault = [
-  { type:'Protein', name: 'Beef' },
-  { type:'Bun', name: 'Brioche' },
-  { type:'Weight', name: '1/3 lb'},
-];
 
+const burgerDefault = {
+  protein: 'Beef',
+  bun: 'Brioche',
+  weight: '1/3 lb',
+  cheeses: [],
+  sauces: [],
+  toppings: [],
+  premium: []
+}
+
+export default (state = burgerDefault, action) => {
+  switch (action.type) {
+    case 'ADD_CHEESE':
+      console.log('redux cheese')
+      var newCheeses = [...state.cheeses];
+      newCheeses.push(action.item);
+      console.log(newCheeses);
+      return {...state, cheeses: newCheeses}
+    case 'REMOVE_CHEESE':
+      // var newCheese = state.cheese.filter((cheese) => {
+      //
+      // } )
+      return { ...state }
+    case 'CHANGE_BUN':
+      return { ...state, bun: action.item }
+    default:
+      return state;
+  }
+}
+
+// const burgerDefault = [
+//   { type:'Protein', name: 'Beef' },
+//   { type:'Bun', name: 'Brioche' },
+//   { type:'Weight', name: '1/3 lb'},
+// ];
+
+
+/*
 export default (state = burgerDefault, action) => {
   switch (action.type) {
     case 'ADD_ITEM':
@@ -15,7 +48,7 @@ export default (state = burgerDefault, action) => {
         var filteredBurger = [];
         for (var i = 0; i < state.length; i++) {
           if (state[i].type == action.item.type) {
-            filteredBurger.push({ type:action.item.type, name:action.item.name });
+            filteredBurger.push({ type: action.item.type, name: action.item.name });
           } else {
             filteredBurger.push(state[i]);
           }
@@ -23,11 +56,12 @@ export default (state = burgerDefault, action) => {
         return filteredBurger;
       } else {
         console.log('adding non-radio item')
-        return [...state, { type:action.item.type, name: action.item.name }]
+        return [...state, { type: action.item.type, name: action.item.name }]
       }
     case 'REMOVE_ITEM':
-      return state.filter(item => action.item.type != item.type);
+      return state.filter(item => item.name != action.item.name);
     default:
       return state;
   }
 }
+*/

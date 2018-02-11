@@ -1,37 +1,44 @@
 [
   {
     "name": "Protein",
+    "details": "",
     "items": ["Beef", "Chicken", "Turkey", "Vegan Veggie", "Southern Fried Chicken", "The Impossible Burger"],
     "isRadio": true
   },
   {
-    "name": "Bun",
-    "items": ["Brioce", "Gluten-free", "Ciabatta", "Multigrain", "Hawaiian", "Salad"],
-    "isRadio": true
-  },
-  {
     "name": "Weight",
+    "details": "",
     "items": ["1/3 lb", "1/2 lb", "1 lb"],
     "isRadio": true
   },
   {
+    "name": "Bun",
+    "details": "Choose a bun or a bed of fresh greens",
+    "items": ["Brioche", "Ciabatta", "Multigrain", "Hawaiian", "Gluten-free", "Salad"],
+    "isRadio": true
+  },
+  {
     "name": "Cheese",
+    "details": "Choose a Cheese (Extra Cheese +$1)",
     "items": ["Swiss", "Cheddar", "Yellow American", "Danish Blue Cheese", "Spicy Jalapeno Jack", "Greek Feta", "Smoked Gouda", "Herbed Goat Cheese", "Sharp Provolone"],
     "isRadio": false
   },
   {
     "name": "Sauce",
+    "details": "Choose a Sauce (Extra Sauce +$.75)",
     "items": ["The Counter Relish", "Apricot Sauce", "Horseradish Aioli",
       "Roasted Garlic Aioli", "Basil Pesto", "Hot Wing Sauce", "Whole Grain Mustard", "Smoky Chiptole Aioli", "Sweet Sriracha"],
       "isRadio": false
   },
   {
     "name": "Toppings",
+    "details": "Choose up to 4 Toppings (Extra Toppings +$.75)",
     "items": ["Organic Mixed Greens", "Lettuce Blend", "Scallions", "Sliced Red Onions", "Kale", "Dill Pickle Chips", "Sliced Cucumbers", "Quinoa", "Coleslaw", "Carrot Strings", "Corn + Black Bean Salsa", "Hard-Boiled Egg", "Baby Spinach", "Alfalfa Sprouts", "Roasted Grape Tomatoes"],
     "isRadio": false
   },
   {
     "name": "Premium Toppings",
+    "details": "($1 Per Selection)",
     "items": ["Avocado", "Guacamole", "Sunny Side Up Egg", "Sauteed Mushrooms", "Fried Onion Strings", "Beef Chili", "Turkey Chili", "Applewood Spoked Bacon"],
     "isRadio": false
   }

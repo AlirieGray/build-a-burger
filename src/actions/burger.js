@@ -1,7 +1,21 @@
 
-export const addItem = ( item ) => {
+export const addCheese = ( item ) => {
   return {
-    type: 'ADD_ITEM',
+    type: 'ADD_CHEESE',
+    item
+  }
+}
+
+export const changeBun = ( item ) => {
+  return {
+    type: 'CHANGE_BUN',
+    item
+  }
+}
+
+export const removeCheese = ( item ) => {
+  return {
+    type: 'REMOVE_CHEESE',
     item
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { addItem, removeItem } from '../actions/burger';
+import { addCheese, removeCheese, changeBun } from '../actions/burger';
 import { connect } from 'react-redux';
+import './category.css';
 
 class Category extends Component {
   constructor(props) {
@@ -53,17 +54,27 @@ class Category extends Component {
   }
 
   AddItem(itemName) {
-    var item = {type: this.props.name, isRadio: this.props.isRadio, name: itemName}
     console.log('local add')
-    console.log(item);
-    this.props.addItemAction(item);
+    //console.log(item);
+    // temp
+    var itemType = this.props.name;
+    if (itemType == 'Cheese') {
+      this.props.addCheeseAction(itemName);
+    } else if (itemType == 'Bun') {
+      this.props.changeBunAction(itemName);
+    }
+
+    //this.props.addItemAction(item);
   }
 
   RemoveItem(itemName) {
-    var item = {type: this.props.name, isRadio: this.props.isRadio, name: itemName}
     console.log('local remove')
-    console.log(item);
-    this.props.removeItemAction(item);
+    //console.log(item);
+    var itemType = this.props.name;
+    if (itemType == 'Cheese') {
+        this.props.removeCheeseAction(itemName);
+    }
+
   }
 
   GetOptions() {
@@ -87,24 +98,21 @@ class Category extends Component {
           </div>
         )
       }
-
     })
   }
 
   render() {
     return(
       <div>
-        <h3> {this.props.name} </h3>
+        <div className="category-title">
+          <h3> {this.props.name} </h3>
+          <p> {this.props.details} </p>
+        </div>
         {this.GetOptions()}
       </div>
     );
   }
 }
-
-// <button onClick={this.AddItem}>
-//   Add Cheese (Test)
-// </button>
-
 
 const mapStateToProps = (state) => {
   return {
@@ -112,4 +120,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { addItemAction: addItem, removeItemAction: removeItem })(Category);
+export default connect(mapStateToProps, { addCheeseAction: addCheese, removeCheeseAction: removeCheese, changeBunAction: changeBun })(Category);
