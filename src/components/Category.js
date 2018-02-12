@@ -19,9 +19,9 @@ class Category extends Component {
         selectedOptions:[]
       }
     }
-
   }
 
+  // handles radio buttons changes
   HandleOptionChange(e) {
     if (this.props.isRadio) {
       this.setState({
@@ -32,6 +32,7 @@ class Category extends Component {
     }
   }
 
+  // handles checkbox changes
   ToggleCheckbox(e) {
     e.persist();
     // if we already have the item in state, remove it
@@ -55,6 +56,8 @@ class Category extends Component {
     }
   }
 
+  // takes in a string, and sends a dispatch to add an item with
+  // that name to the store
   AddItem(itemName) {
     var itemType = this.props.name;
     if (itemType === 'Protein') {
@@ -74,6 +77,8 @@ class Category extends Component {
     }
   }
 
+  // takes in a string, and sends a dispatch to remove the
+  // item with that name from store
   RemoveItem(itemName) {
     var itemType = this.props.name;
     if (itemType === 'Cheese') {
@@ -87,12 +92,15 @@ class Category extends Component {
     }
   }
 
+  // gets the menu items for the category and populates them as Item components
   GetOptions() {
     return this.props.options.map((option, index) => {
       if (this.props.isRadio) {
         return (
           <div key={index}>
-            <input type={"radio"} id={`${this.props.name}-${index}`} name={option} value={option} checked={this.state.selectedOption===option}
+            <input type={"radio"} id={`${this.props.name}-${index}`}
+            name={option} value={option}
+            checked={ this.state.selectedOption === option }
             onChange={this.HandleOptionChange}/>
             <label htmlFor={`${this.props.name}-${index}`}> {option}</label>
           </div>
@@ -100,9 +108,11 @@ class Category extends Component {
       } else {
         return (
           <div key={index}>
-            <input type={"checkbox"} id={`${this.props.name}-${index}`} name={option} value={option}
+            <input type={"checkbox"} id={`${this.props.name}-${index}`}
+            name={option} value={option}
             onChange={this.ToggleCheckbox}/>
-            <label htmlFor={`${this.props.name}-${index}`}> {option}</label>
+            <label className="check" htmlFor={`${this.props.name}-${index}`}>
+            {option} </label>
           </div>
         )
       }
@@ -116,7 +126,9 @@ class Category extends Component {
           <h3> {this.props.name} </h3>
           <p> {this.props.details} </p>
         </div>
-        {this.GetOptions()}
+        <div className="options-container">
+          {this.GetOptions()}
+        </div>
       </div>
     );
   }
