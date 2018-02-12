@@ -9,9 +9,7 @@ class Item extends Component {
 
   render() {
     return (
-      <div>
-        <p> {this.props.name} </p>
-      </div>
+        <p> - {this.props.name} </p>
     );
   }
 

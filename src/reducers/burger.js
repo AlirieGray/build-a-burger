@@ -23,7 +23,6 @@ export default (state = burgerDefault, action) => {
       console.log(newCheeses);
       return {...state, cheeses: newCheeses}
     case 'REMOVE_CHEESE':
-      // TODO
       return { ...state, cheeses: state.cheeses.filter((cheese) => {
         return cheese !== action.item;
       }) }
@@ -32,8 +31,9 @@ export default (state = burgerDefault, action) => {
       newSauces.push(action.item);
       return {...state, sauces: newSauces}
     case 'REMOVE_SAUCE':
-      // TODO
-      return { ...state }
+    return { ...state, sauces: state.sauces.filter((sauce) => {
+      return sauce !== action.item;
+    }) }
     case 'ADD_TOPPING':
       var newToppings = [...state.toppings];
       newToppings.push(action.item);

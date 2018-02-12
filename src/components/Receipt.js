@@ -43,18 +43,20 @@ class Receipt extends Component {
         }
       } else if (key === 'toppings') {
         for (let i = 4; i < burger[key].length; i++) {
-          totalPrice += 100;
-        }
-      } else if (key === 'sauces') {
-        if (burger[key].length > 1) {
           totalPrice += 75;
         }
+      } else if (key === 'sauces') {
+          for (let i = 1; i < burger[key].length; i++) {
+            totalPrice += 75;
+          }
       } else if (key === 'cheeses') {
-        if (burger[key].length > 1) {
+        for (let i = 1; i < burger[key].length; i++) {
           totalPrice += 100;
         }
       } else if (key === 'premium') {
-        totalPrice += 100;
+        for (let i = 0; i < burger[key].length; i++) {
+          totalPrice += 100;
+        }
       }
     }
     return totalPrice;

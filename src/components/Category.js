@@ -60,20 +60,30 @@ class Category extends Component {
   // that name to the store
   AddItem(itemName) {
     var itemType = this.props.name;
-    if (itemType === 'Protein') {
-      this.props.changeProteinAction(itemName);
-    } else if (itemType === 'Cheese') {
-      this.props.addCheeseAction(itemName);
-    } else if (itemType === 'Bun') {
-      this.props.changeBunAction(itemName);
-    } else if (itemType === 'Weight') {
-      this.props.changeWeightAction(itemName);
-    } else if (itemType === 'Sauce') {
-      this.props.addSauceAction(itemName);
-    } else if (itemType === 'Toppings') {
-      this.props.addToppingAction(itemName);
-    } else if (itemType === "Premium Toppings") {
-      this.props.addPremiumAction(itemName);
+    switch (itemType) {
+      case 'Protein':
+        this.props.changeProteinAction(itemName);
+        break;
+      case 'Cheese':
+        this.props.addCheeseAction(itemName);
+        break;
+      case 'Bun':
+        this.props.changeBunAction(itemName);
+        break;
+      case 'Weight':
+        this.props.changeWeightAction(itemName);
+        break;
+      case 'Sauce':
+        this.props.addSauceAction(itemName);
+        break;
+      case 'Toppings':
+        this.props.addToppingAction(itemName);
+        break;
+      case 'Premium Toppings':
+        this.props.addPremiumAction(itemName);
+        break;
+      default:
+        break;
     }
   }
 

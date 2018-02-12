@@ -1,5 +1,6 @@
 .menu {
   padding: 20px;
+  padding-top: 0px;
   grid-column-start: 2;
   grid-row-start: 2;
   height: calc(100vh - 150px);
