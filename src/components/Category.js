@@ -97,22 +97,30 @@ class Category extends Component {
     return this.props.options.map((option, index) => {
       if (this.props.isRadio) {
         return (
-          <div key={index}>
-            <input type={"radio"} id={`${this.props.name}-${index}`}
-            name={option} value={option}
-            checked={ this.state.selectedOption === option }
-            onChange={this.HandleOptionChange}/>
-            <label htmlFor={`${this.props.name}-${index}`}> {option}</label>
+          <div className="radio" key={index}>
+          <div className="input-container">
+              <input type={"radio"} id={`${this.props.name}-${index}`}
+              name={option} value={option}
+              checked={ this.state.selectedOption === option }
+              onChange={this.HandleOptionChange}/>
+              <label htmlFor={`${this.props.name}-${index}`}>
+              <span> {option} </span>
+              </label>
+              <div className="item-name"> {option} </div>
+            </div>
           </div>
         );
       } else {
         return (
-          <div key={index}>
-            <input type={"checkbox"} id={`${this.props.name}-${index}`}
-            name={option} value={option}
-            onChange={this.ToggleCheckbox}/>
-            <label className="check" htmlFor={`${this.props.name}-${index}`}>
-            {option} </label>
+          <div className="check" key={index}>
+          <div className="input-container">
+              <input type={"checkbox"} id={`${this.props.name}-${index}`}
+              name={option} value={option}
+              onChange={this.ToggleCheckbox}/>
+              <label htmlFor={`${this.props.name}-${index}`}>
+              <span> {option} </span> </label>
+              <div className="item-name"> {option} </div>
+            </div>
           </div>
         )
       }
