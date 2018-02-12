@@ -1,5 +1,6 @@
 .receipt {
   padding: 10px;
+  max-width: 250px;
   padding-left: 20px;
   padding-right: 20px;
   grid-column-start: 3;
@@ -17,7 +18,15 @@
 }
 
 #order-title-underline {
-  height: 2px;
+  height: 3px;
   width: 150px;
   background-color: #552305;
+}
+
+#subtotal-line {
+  height: 1px;
+  width: 150px;
+  margin-left: auto;
+  margin-right: 0;
+  background-color: #7DA0B4;
 }

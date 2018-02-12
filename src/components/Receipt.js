@@ -71,6 +71,7 @@ class Receipt extends Component {
         <h3> Your Order </h3>
         <div id="order-title-underline"> </div>
         <div className="item-names"> {this.GetBurger(this.props.burger)} </div>
+        <div id="subtotal-line"> </div>
         <div className="price"> Subtotal: {
           this.FormatPrice(this.CalculatePrice(this.props.burger))
         } </div>
