@@ -1,6 +1,7 @@
 .menu {
   padding: 20px;
   grid-column-start: 2;
-  grid-column-end: 5;
   grid-row-start: 2;
+  height: calc(100vh - 150px);
+  overflow: scroll;
 }

@@ -1,10 +1,10 @@
 .receipt {
-  width: 200px;
-  right: 40px;
   padding: 10px;
-  grid-column-start: 6;
-  grid-column-end: 9;
+  padding-left: 20px;
+  padding-right: 20px;
+  grid-column-start: 3;
   grid-row-start: 2;
+
 }
 
 .receipt > h3 {
