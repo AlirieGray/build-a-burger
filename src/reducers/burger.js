@@ -11,19 +11,43 @@ const burgerDefault = {
 
 export default (state = burgerDefault, action) => {
   switch (action.type) {
+    case 'CHANGE_PROTEIN':
+      return { ...state, protein: action.item }
+    case 'CHANGE_WEIGHT':
+      return { ...state, weight: action.item }
+    case 'CHANGE_BUN':
+      return { ...state, bun: action.item }
     case 'ADD_CHEESE':
-      console.log('redux cheese')
       var newCheeses = [...state.cheeses];
       newCheeses.push(action.item);
       console.log(newCheeses);
       return {...state, cheeses: newCheeses}
     case 'REMOVE_CHEESE':
-      // var newCheese = state.cheese.filter((cheese) => {
-      //
-      // } )
+      // TODO
+      return { ...state, cheeses: state.cheeses.filter((cheese) => {
+        return cheese != action.item;
+      }) }
+    case 'ADD_SAUCE':
+      var newSauces = [...state.sauces];
+      newSauces.push(action.item);
+      return {...state, sauces: newSauces}
+    case 'REMOVE_SAUCE':
+      // TODO
       return { ...state }
-    case 'CHANGE_BUN':
-      return { ...state, bun: action.item }
+    case 'ADD_TOPPING':
+      var newToppings = [...state.toppings];
+      newToppings.push(action.item);
+      return {...state, toppings: newToppings}
+    case 'REMOVE_TOPPING':
+      // TODO
+      return { ...state }
+    case 'ADD_PREMIUM':
+      var newPremium = [...state.premium];
+      newPremium.push(action.item);
+      return {...state, premium: newPremium}
+    case 'REMOVE_PREMIUM':
+      // TODO
+      return { ...state }
     default:
       return state;
   }

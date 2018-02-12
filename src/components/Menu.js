@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 //import { bindActionCreators } from 'redux';
 import './Menu.css';
-import Item from './Item';
 import Category from './Category';
 const menuItems = require('./menu.json');
 

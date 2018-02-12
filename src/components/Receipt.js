@@ -10,14 +10,6 @@ class Receipt extends Component {
     this.GetBurger = this.GetBurger.bind(this);
     this.CalculatePrice = this.CalculatePrice.bind(this);
     this.FormatPrice = this.FormatPrice.bind(this);
-    // TODO: transfer to redux
-    this.state = {
-      totalPrice: 0,
-      cheeseCount: 0,
-      toppingsCount: 0,
-      premiumCount: 0,
-      sauceCount: 0
-    }
   }
 
   GetBurger(burger) {
@@ -26,7 +18,7 @@ class Receipt extends Component {
     var printBurger = [];
 
     for (var key in burger) {
-      if (typeof(burger[key]) == 'string') {
+      if (typeof(burger[key]) === 'string') {
         console.log(burger[key]);
         printBurger.push(burger[key]);
       } else if (Array.isArray(burger[key])) {
@@ -48,7 +40,24 @@ class Receipt extends Component {
     // Sauce
     // Toppings
     // Premium
-    return 1;
+    var totalPrice = 0;
+    for (var key in burger) {
+      if (key === 'weight') {
+        if (burger[key] === '1/3 lb') {
+          totalPrice += 1125;
+        } else if (burger[key] === '1/2 lb') {
+          totalPrice += 1475;
+        } else if (burger[key] === '1 lb') {
+          totalPrice += 2125;
+        }
+      }
+      else if (key === 'sauces') {
+        for (let i = 3; i < burger[key].length; i++) {
+          totalPrice += 100;
+        }
+      }
+    }
+    return totalPrice;
   }
 
   // takes in a price in pennies and returns it properly formatted in USD
@@ -60,7 +69,7 @@ class Receipt extends Component {
     return (
       <div className="receipt">
         <div> {this.GetBurger(this.props.burger)} </div>
-        <div> {this.FormatPrice(this.CalculatePrice(this.props.burger))} </div>
+        <div className="price"> Subtotal: {this.FormatPrice(this.CalculatePrice(this.props.burger))} </div>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { addCheese, removeCheese, changeBun } from '../actions/burger';
+import { changeProtein, changeWeight, changeBun, addCheese, removeCheese, addSauce, removeSauce, addTopping, removeTopping, addPremium, removePremium } from '../actions/burger';
 import { connect } from 'react-redux';
 import './category.css';
 
@@ -38,7 +38,7 @@ class Category extends Component {
     var index = this.state.selectedOptions.indexOf(e.target.value);
     if (index >= 0) {
       this.setState({
-        selectedOptions: this.state.selectedOptions.filter(item => item.name == e.target.value)
+        selectedOptions: this.state.selectedOptions.filter(item => item.name === e.target.value)
       }, () => {
         this.RemoveItem(e.target.value);
       })
@@ -58,10 +58,18 @@ class Category extends Component {
     //console.log(item);
     // temp
     var itemType = this.props.name;
-    if (itemType == 'Cheese') {
+    if (itemType === 'Protein') {
+      this.props.changeProteinAction(itemName);
+    } else if (itemType === 'Cheese') {
       this.props.addCheeseAction(itemName);
-    } else if (itemType == 'Bun') {
+    } else if (itemType === 'Bun') {
       this.props.changeBunAction(itemName);
+    } else if (itemType === 'Weight') {
+      this.props.changeWeightAction(itemName);
+    } else if (itemType === 'Sauce') {
+      this.props.addSauceAction(itemName);
+    } else if (itemType === 'Toppings') {
+      this.props.addToppingAction(itemName);
     }
 
     //this.props.addItemAction(item);
@@ -71,7 +79,7 @@ class Category extends Component {
     console.log('local remove')
     //console.log(item);
     var itemType = this.props.name;
-    if (itemType == 'Cheese') {
+    if (itemType === 'Cheese') {
         this.props.removeCheeseAction(itemName);
     }
 
@@ -120,4 +128,16 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { addCheeseAction: addCheese, removeCheeseAction: removeCheese, changeBunAction: changeBun })(Category);
+export default connect(mapStateToProps, {
+  changeProteinAction: changeProtein,
+  changeWeightAction: changeWeight,
+  changeBunAction: changeBun,
+  addCheeseAction: addCheese,
+  removeCheeseAction: removeCheese,
+  addSauceAction: addSauce,
+  removeSauceAction: removeSauce,
+  addToppingAction: addTopping,
+  removeToppingAction: removeTopping,
+  addPremiumAction: addPremium,
+  removePremiumAction: removePremium
+})(Category);
