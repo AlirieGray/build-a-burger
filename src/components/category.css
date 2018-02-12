@@ -57,6 +57,7 @@ input[type='radio'] {
 
 input[type="radio"]:checked+label {
   border-color: orange;
+  background-color: orange;
 }
 
 input[type='checkbox'] {
@@ -65,4 +66,5 @@ input[type='checkbox'] {
 
 input[type="checkbox"]:checked+label {
   border-color: orange;
+  background-color: orange;
 }
