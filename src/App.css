@@ -1,4 +1,6 @@
 .App {
   display: grid;
   grid-template-columns: 2fr 1fr;
+  font-family: Arial;
+  letter-spacing: 1px; 
 }

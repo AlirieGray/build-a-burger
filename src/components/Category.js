@@ -37,8 +37,6 @@ class Category extends Component {
     // if we already have the item in state, remove it
     var index = this.state.selectedOptions.indexOf(e.target.value);
     if (index >= 0) {
-      console.log("in selected")
-      console.log(this.state.selectedOptions)
       this.setState({
         selectedOptions: this.state.selectedOptions.filter((item) => {
           return item !== e.target.value;
@@ -49,8 +47,6 @@ class Category extends Component {
     }
     // otherwise, add it to state
     else {
-      console.log("not in selected")
-      console.log(this.state.selectedOptions)
       this.setState({
         selectedOptions: [...this.state.selectedOptions, e.target.name]
       }, () => {
