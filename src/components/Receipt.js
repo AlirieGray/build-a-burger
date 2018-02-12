@@ -13,18 +13,13 @@ class Receipt extends Component {
   }
 
   GetBurger(burger) {
-    console.log("burger in receipt:")
-    console.log(burger)
     var printBurger = [];
 
     for (var key in burger) {
       if (typeof(burger[key]) === 'string') {
-        console.log(burger[key]);
         printBurger.push(burger[key]);
       } else if (Array.isArray(burger[key])) {
         for (let i = 0; i < burger[key].length; i++) {
-          console.log('array item');
-          console.log(burger[key][i]);
           printBurger.push(burger[key][i])
         }
       }
@@ -36,10 +31,6 @@ class Receipt extends Component {
 
   CalculatePrice(burger) {
     // price is in pennies
-    // Cheese
-    // Sauce
-    // Toppings
-    // Premium
     var totalPrice = 0;
     for (var key in burger) {
       if (key === 'weight') {
@@ -50,11 +41,20 @@ class Receipt extends Component {
         } else if (burger[key] === '1 lb') {
           totalPrice += 2125;
         }
-      }
-      else if (key === 'sauces') {
-        for (let i = 3; i < burger[key].length; i++) {
+      } else if (key === 'toppings') {
+        for (let i = 4; i < burger[key].length; i++) {
           totalPrice += 100;
         }
+      } else if (key === 'sauces') {
+        if (burger[key].length > 1) {
+          totalPrice += 75;
+        }
+      } else if (key === 'cheeses') {
+        if (burger[key].length > 1) {
+          totalPrice += 100;
+        }
+      } else if (key === 'premium') {
+        totalPrice += 100;
       }
     }
     return totalPrice;

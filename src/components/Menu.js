@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import { bindActionCreators } from 'redux';
 import './Menu.css';
 import Category from './Category';
 const menuItems = require('./menu.json');
@@ -27,6 +26,5 @@ class Menu extends Component {
     );
   }
 }
-
 
 export default Menu;

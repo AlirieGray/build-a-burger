@@ -37,14 +37,20 @@ class Category extends Component {
     // if we already have the item in state, remove it
     var index = this.state.selectedOptions.indexOf(e.target.value);
     if (index >= 0) {
+      console.log("in selected")
+      console.log(this.state.selectedOptions)
       this.setState({
-        selectedOptions: this.state.selectedOptions.filter(item => item.name === e.target.value)
+        selectedOptions: this.state.selectedOptions.filter((item) => {
+          return item !== e.target.value;
+        })
       }, () => {
         this.RemoveItem(e.target.value);
       })
     }
     // otherwise, add it to state
     else {
+      console.log("not in selected")
+      console.log(this.state.selectedOptions)
       this.setState({
         selectedOptions: [...this.state.selectedOptions, e.target.name]
       }, () => {
@@ -54,9 +60,6 @@ class Category extends Component {
   }
 
   AddItem(itemName) {
-    console.log('local add')
-    //console.log(item);
-    // temp
     var itemType = this.props.name;
     if (itemType === 'Protein') {
       this.props.changeProteinAction(itemName);
@@ -70,25 +73,26 @@ class Category extends Component {
       this.props.addSauceAction(itemName);
     } else if (itemType === 'Toppings') {
       this.props.addToppingAction(itemName);
+    } else if (itemType === "Premium Toppings") {
+      this.props.addPremiumAction(itemName);
     }
-
-    //this.props.addItemAction(item);
   }
 
   RemoveItem(itemName) {
-    console.log('local remove')
-    //console.log(item);
     var itemType = this.props.name;
     if (itemType === 'Cheese') {
         this.props.removeCheeseAction(itemName);
+    } else if (itemType === 'Sauce') {
+      this.props.removeSauceAction(itemName);
+    } else if (itemType === 'Toppings') {
+      this.props.removeToppingAction(itemName);
+    } else if (itemType === 'Premium Toppings') {
+      this.props.removePremiumAction(itemName);
     }
-
   }
 
   GetOptions() {
     return this.props.options.map((option, index) => {
-      // TODO: check if should be radio or square
-      // this.props.isRadio
       if (this.props.isRadio) {
         return (
           <div key={index}>

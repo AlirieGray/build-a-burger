@@ -25,7 +25,7 @@ export default (state = burgerDefault, action) => {
     case 'REMOVE_CHEESE':
       // TODO
       return { ...state, cheeses: state.cheeses.filter((cheese) => {
-        return cheese != action.item;
+        return cheese !== action.item;
       }) }
     case 'ADD_SAUCE':
       var newSauces = [...state.sauces];
